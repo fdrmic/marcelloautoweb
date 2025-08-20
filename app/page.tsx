@@ -195,7 +195,7 @@ export default function Component() {
             }}
           >
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight animate-[heroTitleSlideIn_1.2s_ease-out_0s_forwards]"
+              className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight opacity-0 animate-[heroTitleSlideIn_1.2s_ease-out_0s_forwards]"
             >
               Ihre Vertrauensvolle
               <br />
@@ -204,11 +204,11 @@ export default function Component() {
               </span>
             </h1>
             <p 
-              className="max-w-4xl mx-auto text-xl md:text-2xl text-gray-200 drop-shadow-lg leading-relaxed animate-[heroSubtitleSlideIn_1s_ease-out_1.2s_forwards]"
+              className="max-w-4xl mx-auto text-xl md:text-2xl text-gray-200 drop-shadow-lg leading-relaxed opacity-0 animate-[heroSubtitleSlideIn_1s_ease-out_1.2s_forwards]"
             >
               Professionelle Reparaturen, Wartung und Fahrzeughandel - Ihr Auto ist bei uns in den besten Händen.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 animate-[heroButtonsSlideIn_1s_ease-out_2.4s_forwards]">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 opacity-0 animate-[heroButtonsSlideIn_1s_ease-out_2.4s_forwards]">
               <Link href="/dienstleistungen">
                 <Button
                   size="lg"

@@ -43,6 +43,34 @@ export default function AnUndVerkaufPage() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // AutoScout24 HCI Script laden
+  useEffect(() => {
+    // Prüfen ob das Script bereits geladen ist
+    if (document.querySelector('script[src*="autoscout24.ch"]')) {
+      return
+    }
+
+    // Script dynamisch laden
+    const script = document.createElement('script')
+    script.src = 'https://www.autoscout24.ch/assets/hci/v2/hci.current.js'
+    script.async = true
+    script.onload = () => {
+      console.log('AutoScout24 HCI Script geladen')
+    }
+    script.onerror = () => {
+      console.error('Fehler beim Laden des AutoScout24 HCI Scripts')
+    }
+    document.head.appendChild(script)
+
+    return () => {
+      // Cleanup: Script entfernen wenn Komponente unmounted wird
+      const existingScript = document.querySelector('script[src*="autoscout24.ch"]')
+      if (existingScript) {
+        existingScript.remove()
+      }
+    }
+  }, [])
+
   // Lokale Submit-Funktion für das Formular
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -403,7 +431,6 @@ export default function AnUndVerkaufPage() {
                         {/* AutoScout24 HCI Integration */}
                         <div className="mt-8">
                           <div className="hci-container" data-config-id="12354" data-language="de" data-entry-point="search"></div>
-                          <script src="https://www.autoscout24.ch/assets/hci/v2/hci.current.js"></script>
                         </div>
                       </div>
                     </div>

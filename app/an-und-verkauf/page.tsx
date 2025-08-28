@@ -56,6 +56,23 @@ export default function AnUndVerkaufPage() {
     script.async = true
     script.onload = () => {
       console.log('AutoScout24 HCI Script geladen')
+      // HCI Container nach dem Laden des Scripts initialisieren
+      setTimeout(() => {
+        const hciContainer = document.querySelector('.hci-container')
+        if (hciContainer) {
+          console.log('HCI Container gefunden, initialisiere...')
+          // Container neu rendern
+          hciContainer.innerHTML = ''
+          // AutoScout24 HCI sollte sich automatisch initialisieren
+          
+          // Debugging: Überprüfe ob HCI global verfügbar ist
+          if ((window as any).hci) {
+            console.log('HCI global verfügbar:', (window as any).hci)
+          } else {
+            console.log('HCI global nicht verfügbar')
+          }
+        }
+      }, 1000)
     }
     script.onerror = () => {
       console.error('Fehler beim Laden des AutoScout24 HCI Scripts')
@@ -435,11 +452,21 @@ export default function AnUndVerkaufPage() {
                         {/* AutoScout24 HCI Integration */}
                         <div className="mt-8">
                           <div 
-                            className="hci-container w-full min-h-[600px]" 
+                            className="hci-container w-full min-h-[600px] bg-gray-800 rounded-lg border border-gray-700" 
                             data-config-id="4224" 
                             data-language="de" 
                             data-entry-point="search"
-                          ></div>
+                          >
+                            {/* Ladeindikator */}
+                            <div className="flex items-center justify-center h-full text-gray-400">
+                              <div className="text-center">
+                                <div className="text-4xl mb-4">🚗</div>
+                                <p className="text-lg font-medium">Fahrzeugauswahl lädt...</p>
+                                <p className="text-sm mt-2">AutoScout24 HCI wird initialisiert</p>
+                                <p className="text-xs mt-2 text-gray-500">Config ID: 4224</p>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

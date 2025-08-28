@@ -80,7 +80,7 @@ export default function DienstleistungenPage() {
                 
                 <div className="bg-[#FF0000]/10 border-l-4 border-[#FF0000] p-3 md:p-4 rounded-r-lg">
                   <p className="text-white font-medium text-sm md:text-base">
-                    ➡ Mit regelmässiger Wartung verlängern Sie die Lebensdauer Ihres Autos und sparen Kosten.
+                    Mit regelmässiger Wartung verlängern Sie die Lebensdauer Ihres Autos und sparen Kosten.
                   </p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function DienstleistungenPage() {
                 
                 <div className="bg-[#FF0000]/10 border-l-4 border-[#FF0000] p-3 md:p-4 rounded-r-lg">
                   <p className="text-white font-medium text-sm md:text-base">
-                    ➡ Wir legen Wert auf perfekte Qualität, sodass Ihr Auto wieder aussieht wie neu.
+                    Wir legen Wert auf perfekte Qualität, sodass Ihr Auto wieder aussieht wie neu.
                   </p>
                 </div>
               </div>
@@ -202,7 +202,7 @@ export default function DienstleistungenPage() {
                 
                 <div className="bg-[#FF0000]/10 border-l-4 border-[#FF0000] p-3 md:p-4 rounded-r-lg">
                   <p className="text-white font-medium text-sm md:text-base">
-                    ➡ Vertrauen Sie auf unsere Erfahrung und finden Sie Ihr nächstes Auto bei uns.
+                    Vertrauen Sie auf unsere Erfahrung und finden Sie Ihr nächstes Auto bei uns.
                   </p>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function DienstleistungenPage() {
                 
                 <div className="bg-[#FF0000]/10 border-l-4 border-[#FF0000] p-4 rounded-r-lg">
                   <p className="text-white font-medium">
-                    ➡ Mit den richtigen Reifen fahren Sie sicher durch jede Jahreszeit.
+                    Mit den richtigen Reifen fahren Sie sicher durch jede Jahreszeit.
                   </p>
                 </div>
               </div>

@@ -50,34 +50,78 @@ export default function AnUndVerkaufPage() {
       return
     }
 
-    // Script dynamisch laden - neue Version von AutoScout24
-    const script = document.createElement('script')
-    script.src = 'https://www.autoscout24.ch/assets/hci/v2/hci.current.js'
-    script.async = true
-    script.onload = () => {
-      console.log('AutoScout24 HCI Script geladen')
-      // HCI Container nach dem Laden des Scripts initialisieren
-      setTimeout(() => {
-        const hciContainer = document.querySelector('.hci-container')
-        if (hciContainer) {
-          console.log('HCI Container gefunden, initialisiere...')
-          // Container neu rendern
-          hciContainer.innerHTML = ''
-          // AutoScout24 HCI sollte sich automatisch initialisieren
-          
-          // Debugging: Überprüfe ob HCI global verfügbar ist
-          if ((window as any).hci) {
-            console.log('HCI global verfügbar:', (window as any).hci)
-          } else {
-            console.log('HCI global nicht verfügbar')
+    // Mehrere Script-Versionen versuchen
+    const scriptUrls = [
+      'https://www.autoscout24.ch/assets/hci/v2/hci.current.js',
+      'https://www.autoscout24.ch/MVC/Content/as24-hci-desktop/js/e.min.js',
+      'https://www.autoscout24.ch/assets/hci/hci.js'
+    ]
+
+    let currentScriptIndex = 0
+
+    const tryNextScript = () => {
+      if (currentScriptIndex >= scriptUrls.length) {
+        console.error('Alle AutoScout24 HCI Scripts fehlgeschlagen')
+        return
+      }
+
+      const script = document.createElement('script')
+      script.src = scriptUrls[currentScriptIndex]
+      script.async = true
+      
+      script.onload = () => {
+        console.log(`AutoScout24 HCI Script geladen: ${scriptUrls[currentScriptIndex]}`)
+        
+        // HCI Container nach dem Laden des Scripts initialisieren
+        setTimeout(() => {
+          const hciContainer = document.querySelector('.hci-container')
+          if (hciContainer) {
+            console.log('HCI Container gefunden, initialisiere...')
+            
+            // Versuche verschiedene HCI-Initialisierungsmethoden
+            if ((window as any).hci && (window as any).hci.init) {
+              console.log('HCI.init() verfügbar, starte...')
+              try {
+                (window as any).hci.init()
+              } catch (error) {
+                console.error('Fehler bei HCI.init():', error)
+              }
+            } else if ((window as any).AutoScout24HCI) {
+              console.log('AutoScout24HCI verfügbar')
+            } else {
+              console.log('HCI global nicht verfügbar, versuche Container neu zu rendern')
+              // Container neu rendern
+              hciContainer.innerHTML = ''
+              // Warte auf HCI-Initialisierung
+              setTimeout(() => {
+                if (hciContainer.children.length === 0) {
+                  console.log('HCI hat sich nicht initialisiert, zeige Fehlermeldung')
+                  hciContainer.innerHTML = `
+                    <div class="flex items-center justify-center h-full text-red-400">
+                      <div class="text-center">
+                        <div class="text-4xl mb-4">⚠️</div>
+                        <p class="text-lg font-medium">HCI konnte nicht geladen werden</p>
+                        <p class="text-sm mt-2">Bitte kontaktieren Sie den Support</p>
+                      </div>
+                    </div>
+                  `
+                }
+              }, 3000)
+            }
           }
-        }
-      }, 1000)
+        }, 1000)
+      }
+      
+      script.onerror = () => {
+        console.error(`Fehler beim Laden des Scripts: ${scriptUrls[currentScriptIndex]}`)
+        currentScriptIndex++
+        tryNextScript()
+      }
+      
+      document.head.appendChild(script)
     }
-    script.onerror = () => {
-      console.error('Fehler beim Laden des AutoScout24 HCI Scripts')
-    }
-    document.head.appendChild(script)
+
+    tryNextScript()
 
     return () => {
       // Cleanup: Script entfernen wenn Komponente unmounted wird

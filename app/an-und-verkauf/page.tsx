@@ -50,16 +50,12 @@ export default function AnUndVerkaufPage() {
       return
     }
 
-    // Script dynamisch laden - aktuelle Version
+    // Script dynamisch laden - korrekte Version von AutoScout24
     const script = document.createElement('script')
-    script.src = 'https://www.autoscout24.ch/assets/hci/v2/hci.current.js'
+    script.src = 'https://www.autoscout24.ch/MVC/Content/as24-hci-desktop/js/e.min.js'
     script.async = true
     script.onload = () => {
       console.log('AutoScout24 HCI Script geladen')
-      // HCI Container initialisieren
-      if ((window as any).hci && (window as any).hci.init) {
-        (window as any).hci.init()
-      }
     }
     script.onerror = () => {
       console.error('Fehler beim Laden des AutoScout24 HCI Scripts')
@@ -439,20 +435,9 @@ export default function AnUndVerkaufPage() {
                         {/* AutoScout24 HCI Integration */}
                         <div className="mt-8">
                           <div 
-                            id="hci-container"
-                            data-config-id="12354"
-                            data-language="de"
-                            data-entry-point="search"
-                            className="w-full min-h-[600px] bg-gray-800 rounded-lg border border-gray-700"
-                          >
-                            <div className="flex items-center justify-center h-full text-gray-400">
-                              <div className="text-center">
-                                <div className="text-4xl mb-4">🚗</div>
-                                <p className="text-lg font-medium">Fahrzeugauswahl lädt...</p>
-                                <p className="text-sm mt-2">AutoScout24 HCI wird initialisiert</p>
-                              </div>
-                            </div>
-                          </div>
+                            data-embedded-src="https://www.autoscout24.ch/de/hci/list?design=4878&filter=10154" 
+                            className="embedded-content-area w-full min-h-[600px]"
+                          ></div>
                         </div>
                       </div>
                     </div>

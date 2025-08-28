@@ -74,7 +74,11 @@ export default function AnUndVerkaufPage() {
   // Lokale Submit-Funktion für das Formular
   const handleSubmit = async (formData: FormData) => {
     try {
-      await submitVerkaufForm(formData)
+      const result = await submitVerkaufForm(formData)
+      if (result.success) {
+        // Erfolg - könnte hier eine Toast-Nachricht anzeigen
+        console.log(result.message)
+      }
     } catch (error) {
       console.error('Fehler beim Absenden des Formulars:', error)
     }

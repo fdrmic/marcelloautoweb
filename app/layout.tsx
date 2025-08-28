@@ -6,32 +6,32 @@ import GlobalFooter from '@/components/global-footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Auto RiKu AG - Ihre vertrauensvolle Garage in Diepoldsau',
-  description: 'Ihre vertrauensvolle Garage in Diepoldsau – Reparaturen, Service und Fahrzeughandel. Zertifizierte Qualität, fairer Service und moderne Ausstattung.',
+  title: 'Marcello Auto GmbH - Ihre vertrauensvolle Garage in Seewen',
+  description: 'Ihre vertrauensvolle Garage in Seewen – Reparaturen, Service und Fahrzeughandel. Zertifizierte Qualität, fairer Service und moderne Ausstattung.',
   keywords: 'Autowerkstatt, Autoreparatur, Fahrzeughandel, MFK, Inspektion, Unfallreparatur, Diepoldsau, Schweiz',
-  authors: [{ name: 'Auto RiKu AG' }],
-  creator: 'Auto RiKu AG',
-  publisher: 'Auto RiKu AG',
+  authors: [{ name: 'Marcello Auto GmbH' }],
+  creator: 'Marcello Auto GmbH',
+  publisher: 'Marcello Auto GmbH',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://autoriku.ch'),
+  metadataBase: new URL('https://marcello-auto.ch'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Auto RiKu AG - Ihre vertrauensvolle Garage in Diepoldsau',
-    description: 'Ihre vertrauensvolle Garage in Diepoldsau – Reparaturen, Service und Fahrzeughandel.',
-    url: 'https://autoriku.ch',
-    siteName: 'Auto RiKu AG',
+    title: 'Marcello Auto GmbH - Ihre vertrauensvolle Garage in Seewen',
+    description: 'Ihre vertrauensvolle Garage in Seewen – Reparaturen, Service und Fahrzeughandel.',
+    url: 'https://marcello-auto.ch',
+    siteName: 'Marcello Auto GmbH',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Auto RiKu AG - Ihre vertrauensvolle Garage in Diepoldsau',
+        alt: 'Marcello Auto GmbH - Ihre vertrauensvolle Garage in Seewen',
       },
     ],
     locale: 'de_CH',
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Auto RiKu AG - Ihre vertrauensvolle Garage in Diepoldsau',
-    description: 'Ihre vertrauensvolle Garage in Diepoldsau – Reparaturen, Service und Fahrzeughandel.',
+    title: 'Marcello Auto GmbH - Ihre vertrauensvolle Garage in Seewen',
+    description: 'Ihre vertrauensvolle Garage in Seewen – Reparaturen, Service und Fahrzeughandel.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -75,8 +75,9 @@ html {
   --font-mono: ${GeistMono.variable};
 }
         `}</style>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/logo2.svg" type="image/svg+xml" />
+        <link rel="icon" href="/logo2.svg" type="image/svg+xml" sizes="any" />
+        <link rel="apple-touch-icon" href="/logo2.svg" />
         <meta name="theme-color" content="#FF0000" />
         <meta name="msapplication-TileColor" content="#FF0000" />
       </head>

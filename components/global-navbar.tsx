@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -58,7 +59,7 @@ export default function GlobalNavbar() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 text-white hover:text-[#FF0000] transition-colors">
-          <span className="text-2xl font-bold">Auto RiKu AG</span>
+          <span className="text-2xl font-bold">Marcello Auto GmbH</span>
         </Link>
         
         {/* Desktop Navigation - Zentriert */}

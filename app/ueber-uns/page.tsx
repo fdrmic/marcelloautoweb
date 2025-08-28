@@ -10,6 +10,7 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import Image from "next/image"
 
 export default function UeberUnsPage() {
   const [scrollY, setScrollY] = useState(0)
@@ -28,10 +29,10 @@ export default function UeberUnsPage() {
           {/* Content */}
           <div className="relative z-10 space-y-8 px-4 md:px-6 max-w-4xl mx-auto">
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl">
-              Über uns – Auto RiKu AG
+              Über uns – Marcello Auto GmbH
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 drop-shadow-lg leading-relaxed">
-              Ihre Garage in Diepoldsau
+              Ihre Garage in Seewen
             </p>
           </div>
         </section>
@@ -45,23 +46,23 @@ export default function UeberUnsPage() {
                 {/* Main Image - Side Entry Effect */}
                 <div className="relative overflow-hidden rounded-2xl">
                   <div 
-                    className="bg-gray-800 h-96 rounded-2xl flex items-center justify-center transform transition-all duration-1000 ease-out"
+                    className="h-96 rounded-2xl flex items-center justify-center transform transition-all duration-1000 ease-out"
                     style={{
-                      transform: `translateX(${Math.max(0, (scrollY - 200) * 0.3)}px)`,
-                      opacity: Math.min(1, (scrollY - 100) * 0.01)
+                      transform: `translateX(${Math.max(0, Math.min(100, (scrollY - 200) * 0.2))}px)`
                     }}
                   >
-                    <div className="text-center text-gray-400">
-                      <div className="text-6xl mb-4">🏢</div>
-                      <p className="text-lg">Auto RiKu AG Werkstatt</p>
-                      <p className="text-sm">Professionelle Werkstatt in Diepoldsau</p>
-                    </div>
+                    <Image
+                      src="/logo1.png"
+                      alt="Marcello Auto GmbH Logo"
+                      fill
+                      className="object-contain p-4"
+                    />
                   </div>
                 </div>
 
                 {/* Additional Content Box */}
                 <div className="bg-gray-900/50 p-6 rounded-lg border border-gray-800">
-                  <h3 className="text-xl font-bold text-white mb-4">Warum Auto RiKu?</h3>
+                  <h3 className="text-xl font-bold text-white mb-4">Warum Marcello Auto?</h3>
                   <div className="space-y-3">
                     <div className="flex items-center gap-3">
                       <div className="w-2 h-2 bg-[#FF0000] rounded-full"></div>
@@ -119,7 +120,7 @@ export default function UeberUnsPage() {
                 <div className="space-y-6">
                   <h2 className="text-3xl font-bold text-white border-b border-gray-700 pb-3">Über uns</h2>
                   <p className="text-lg text-gray-300 leading-relaxed">
-                    Die Auto RiKu AG ist Ihre vertrauensvolle Anlaufstelle für Reparaturen, Service und Fahrzeughandel in der Region Diepoldsau. Mit Leidenschaft für Autos und einem klaren Fokus auf Qualität sorgen wir dafür, dass Ihr Fahrzeug jederzeit in den besten Händen ist.
+                    Die Marcello Auto GmbH ist Ihre vertrauensvolle Anlaufstelle für Reparaturen, Service und Fahrzeughandel in der Region Seewen. Mit Leidenschaft für Autos und einem klaren Fokus auf Qualität sorgen wir dafür, dass Ihr Fahrzeug jederzeit in den besten Händen ist.
                   </p>
                 </div>
 
@@ -160,15 +161,16 @@ export default function UeberUnsPage() {
                     <div 
                       className="bg-gray-800 h-80 rounded-2xl flex items-center justify-center transform transition-all duration-1000 ease-out"
                       style={{
-                        transform: `translateX(${Math.max(0, (scrollY - 400) * 0.1)}px)`,
-                        opacity: Math.min(1, (scrollY - 300) * 0.005)
+                        transform: `translateX(${Math.max(0, Math.min(80, (scrollY - 400) * 0.15))}px)`
                       }}
                     >
-                      <div className="text-center text-gray-400">
-                        <div className="text-6xl mb-4">🛠️</div>
-                        <p className="text-lg">Unsere Werkstatt</p>
-                        <p className="text-sm">Platzhalter für Werkstattbild</p>
-                      </div>
+                      <Image
+                        src="/werkstatt.jpg"
+                        alt="Moderne Werkstatt mit Hebebühne"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
                     </div>
                   </div>
                 </div>

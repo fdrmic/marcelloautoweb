@@ -52,16 +52,7 @@ export default function Component() {
       }
     }
     
-    @keyframes glowPulse {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-      }
-      50% {
-        box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
-      }
-    }
-
-    @keyframes slideUpFade {
+    @keyframes fadeIn {
       0% {
         opacity: 0;
         transform: translateY(30px);
@@ -72,10 +63,14 @@ export default function Component() {
       }
     }
 
-    @keyframes fadeInContent {
+    @keyframes fadeInDelay {
       0% {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(20px);
+      }
+      50% {
+        opacity: 0;
+        transform: translateY(20px);
       }
       100% {
         opacity: 1;
@@ -83,43 +78,34 @@ export default function Component() {
       }
     }
 
-    @keyframes heroTitleSlideIn {
+    @keyframes fadeInDelay2 {
       0% {
         opacity: 0;
-        transform: translateY(60px);
-        filter: blur(10px);
+        transform: translateY(20px);
+      }
+      70% {
+        opacity: 0;
+        transform: translateY(20px);
       }
       100% {
         opacity: 1;
         transform: translateY(0);
-        filter: blur(0px);
       }
     }
 
-    @keyframes heroSubtitleSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-        filter: blur(8px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0px);
-      }
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
     }
 
-    @keyframes heroButtonsSlideIn {
-      0% {
-        opacity: 0;
-        transform: translateY(50px) scale(0.9);
-        filter: blur(5px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0px);
-      }
+    .animate-fade-in-delay {
+      opacity: 0;
+      animation: fadeInDelay 1.2s ease-out forwards;
+    }
+
+    .animate-fade-in-delay-2 {
+      opacity: 0;
+      animation: fadeInDelay2 1.6s ease-out forwards;
     }
   `
     document.head.appendChild(style)
@@ -189,39 +175,39 @@ export default function Component() {
 
           {/* Content - Slogan und Buttons mit Einblend-Effekt */}
           <div
-            className="relative z-10 space-y-8 px-4 md:px-6 max-w-6xl mx-auto w-full"
+            className="relative z-10 space-y-6 md:space-y-8 px-4 md:px-6 max-w-6xl mx-auto w-full"
             style={{
               transform: `translateY(${scrollY * 0.2}px)`,
             }}
           >
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight opacity-0 animate-[heroTitleSlideIn_1.2s_ease-out_0s_forwards]"
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight px-2 animate-fade-in`}
             >
               Ihre Vertrauensvolle
               <br />
-              <span className="text-[#FF0000] drop-shadow-[0_0_30px_rgba(255,0,0,0.3)] animate-[glowPulse_3s_ease-in-out_1.2s_infinite]">
-                Autowerkstatt
+              <span className="text-[#FF0000] drop-shadow-[0_0_30px_rgba(255,0,0,0.3)] animate-pulse">
+                Autogarage
               </span>
             </h1>
             <p 
-              className="max-w-4xl mx-auto text-xl md:text-2xl text-gray-200 drop-shadow-lg leading-relaxed opacity-0 animate-[heroSubtitleSlideIn_1s_ease-out_1.2s_forwards]"
+              className={`max-w-4xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 drop-shadow-lg leading-relaxed px-4 animate-fade-in-delay`}
             >
               Professionelle Reparaturen, Wartung und Fahrzeughandel - Ihr Auto ist bei uns in den besten Händen.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 opacity-0 animate-[heroButtonsSlideIn_1s_ease-out_2.4s_forwards]">
-              <Link href="/dienstleistungen">
+            <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4 sm:pt-8 px-4 animate-fade-in-delay-2`}>
+              <Link href="/dienstleistungen" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="bg-[#FF0000] text-white hover:bg-[#E60000] text-lg px-10 py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 transform hover:scale-105"
+                  className="w-full sm:w-auto bg-[#FF0000] text-white hover:bg-[#E60000] text-base sm:text-lg md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 transform hover:scale-105"
                 >
                   Unsere Services
                 </Button>
               </Link>
-              <Link href="/ueber-uns">
+              <Link href="/ueber-uns" className="w-full sm:w-auto">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-lg px-10 py-4 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
+                  className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-base sm:text-lg md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
                 >
                   Über uns
                 </Button>
@@ -251,7 +237,7 @@ export default function Component() {
         </section>
 
         {/* Services Section - schwarzer Hintergrund */}
-        <section className="py-24 md:py-32 bg-black relative overflow-hidden">
+        <section className="py-16 md:py-24 lg:py-32 bg-black relative overflow-hidden">
           {/* Background Pattern - angepasst */}
           <div
             className="absolute inset-0 opacity-3"
@@ -262,20 +248,20 @@ export default function Component() {
             }}
           />
 
-          <div className="max-w-7xl mx-auto px-4 md:px-6 text-center space-y-16 relative z-10">
+          <div className="max-w-7xl mx-auto px-4 md:px-6 text-center space-y-12 md:space-y-16 relative z-10">
             <div
-              className="space-y-6"
+              className="space-y-4 md:space-y-6"
               style={{
                 transform: `translateY(${Math.max(0, (scrollY - 800) * 0.1)}px)`,
               }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">Unsere Dienstleistungen</h2>
-              <p className="max-w-4xl mx-auto text-gray-300 text-xl leading-relaxed">
-                Von Service bis Verkauf – bei Auto RiKu erhalten Sie alles aus einer Hand.
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white px-2">Unsere Dienstleistungen</h2>
+              <p className="max-w-4xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed px-4">
+                Von Service bis Verkauf – bei Marcello Auto erhalten Sie alles aus einer Hand.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 justify-center max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 justify-center max-w-7xl mx-auto">
               {/* Reparatur & Wartung */}
               <div
                 style={{
@@ -283,27 +269,27 @@ export default function Component() {
                 }}
               >
                 <Card className="bg-gray-900/80 backdrop-blur-sm border-gray-800 text-white flex flex-col h-full hover:bg-gray-900 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] group">
-                  <CardHeader className="p-6 pb-4">
-                    <CardTitle className="text-xl font-bold text-center">Reparatur & Wartung</CardTitle>
+                  <CardHeader className="p-4 md:p-6 pb-2 md:pb-4">
+                    <CardTitle className="text-lg md:text-xl font-bold text-center">Reparatur & Wartung</CardTitle>
                   </CardHeader>
-                  <CardContent className="p-6 pt-0 flex-grow flex flex-col justify-between">
-                    <div className="space-y-2 min-h-[140px]">
-                      <CardDescription className="text-gray-400 text-sm text-center">
+                  <CardContent className="p-4 md:p-6 pt-0 flex-grow flex flex-col justify-between">
+                    <div className="space-y-2 min-h-[120px] md:min-h-[140px]">
+                      <CardDescription className="text-gray-400 text-xs md:text-sm text-center">
                         Kompletter Service für alle Fahrzeugmarken – zuverlässig, schnell und professionell.
                       </CardDescription>
                     </div>
-                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-4">
+                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-3 md:mb-4">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Inspektion & MFK
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Inspektion & MFK
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Motor- und Getriebeservice
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Motor- und Getriebeservice
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Bremsen & Fahrwerk
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Bremsen & Fahrwerk
                       </div>
                     </div>
-                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-sm">
+                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-xs md:text-sm">
                       <Link href="/dienstleistungen">Mehr Erfahren</Link>
                     </Button>
                   </CardContent>
@@ -317,27 +303,27 @@ export default function Component() {
                 }}
               >
                 <Card className="bg-gray-900/80 backdrop-blur-sm border-gray-800 text-white flex flex-col h-full hover:bg-gray-900 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] group">
-                  <CardHeader className="p-6 pb-4">
-                    <CardTitle className="text-xl font-bold text-center">Karosserie & Lackierung</CardTitle>
+                  <CardHeader className="p-4 md:p-6 pb-2 md:pb-4">
+                    <CardTitle className="text-lg md:text-xl font-bold text-center">Karosserie & Lackierung</CardTitle>
                   </CardHeader>
-                  <CardContent className="p-6 pt-0 flex-grow flex flex-col justify-between">
-                    <div className="space-y-2 min-h-[140px]">
-                      <CardDescription className="text-gray-400 text-sm text-center">
+                  <CardContent className="p-4 md:p-6 pt-0 flex-grow flex flex-col justify-between">
+                    <div className="space-y-2 min-h-[120px] md:min-h-[140px]">
+                      <CardDescription className="text-gray-400 text-xs md:text-sm text-center">
                         Wir bringen Ihr Auto wieder in Topform – von kleinen Kratzern bis zur Unfallinstandsetzung.
                       </CardDescription>
                     </div>
-                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-4">
+                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-3 md:mb-4">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Unfallreparaturen
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Unfallreparaturen
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Lackierung & Politur
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Lackierung & Politur
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Dellen- und Kratzerentfernung
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Dellen- und Kratzerentfernung
                       </div>
                     </div>
-                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-sm">
+                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-xs md:text-sm">
                       <Link href="/dienstleistungen">Mehr Erfahren</Link>
                     </Button>
                   </CardContent>
@@ -351,27 +337,27 @@ export default function Component() {
                 }}
               >
                 <Card className="bg-gray-900/80 backdrop-blur-sm border-gray-800 text-white flex flex-col h-full hover:bg-gray-900 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] group">
-                  <CardHeader className="p-6 pb-4">
-                    <CardTitle className="text-xl font-bold text-center">Fahrzeug An- & Verkauf</CardTitle>
+                  <CardHeader className="p-4 md:p-6 pb-2 md:pb-4">
+                    <CardTitle className="text-lg md:text-xl font-bold text-center">Fahrzeug An- & Verkauf</CardTitle>
                   </CardHeader>
-                  <CardContent className="p-6 pt-0 flex-grow flex flex-col justify-between">
-                    <div className="space-y-2 min-h-[140px]">
-                      <CardDescription className="text-gray-400 text-sm text-center">
+                  <CardContent className="p-4 md:p-6 pt-0 flex-grow flex flex-col justify-between">
+                    <div className="space-y-2 min-h-[120px] md:min-h-[140px]">
+                      <CardDescription className="text-gray-400 text-xs md:text-sm text-center">
                         Faire Angebote und geprüfte Occasionen direkt vor Ort.
                       </CardDescription>
                     </div>
-                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-4">
+                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-3 md:mb-4">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Fahrzeugbewertung
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Fahrzeugbewertung
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Sofortiger Ankauf
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Sofortiger Ankauf
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Occasionen mit Garantie
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Occasionen mit Garantie
                       </div>
                     </div>
-                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-sm">
+                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-xs md:text-sm">
                       <Link href="/dienstleistungen">Mehr Erfahren</Link>
                     </Button>
                   </CardContent>
@@ -385,27 +371,27 @@ export default function Component() {
                 }}
               >
                 <Card className="bg-gray-900/80 backdrop-blur-sm border-gray-800 text-white flex flex-col h-full hover:bg-gray-900 transition-all duration-500 hover:scale-105 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] group">
-                  <CardHeader className="p-6 pb-4">
-                    <CardTitle className="text-xl font-bold text-center">Reifen & Räder</CardTitle>
+                  <CardHeader className="p-4 md:p-6 pb-2 md:pb-4">
+                    <CardTitle className="text-lg md:text-xl font-bold text-center">Reifen & Räder</CardTitle>
                   </CardHeader>
-                  <CardContent className="p-6 pt-0 flex-grow flex flex-col justify-between">
-                    <div className="space-y-2 min-h-[140px]">
-                      <CardDescription className="text-gray-400 text-sm text-center">
+                  <CardContent className="p-4 md:p-6 pt-0 flex-grow flex flex-col justify-between">
+                    <div className="space-y-2 min-h-[120px] md:min-h-[140px]">
+                      <CardDescription className="text-gray-400 text-xs md:text-sm text-center">
                         Sicherheit zu jeder Jahreszeit.
                       </CardDescription>
                     </div>
-                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-4">
+                    <div className="flex flex-col gap-2 text-gray-300 text-xs mb-3 md:mb-4">
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Reifenwechsel & Einlagerung
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Reifenwechsel & Einlagerung
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Auswuchten & Montage
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Auswuchten & Montage
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle className="h-4 w-4 text-[#FF0000]" /> Beratung für Sommer- und Winterreifen
+                        <CheckCircle className="h-3 w-3 md:h-4 md:w-4 text-[#FF0000]" /> Beratung für Sommer- und Winterreifen
                       </div>
                     </div>
-                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-sm">
+                    <Button className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] rounded-full py-2 shadow-lg hover:shadow-[0_0_20px_rgba(255,0,0,0.3)] transition-all duration-300 text-xs md:text-sm">
                       <Link href="/dienstleistungen">Mehr Erfahren</Link>
                     </Button>
                   </CardContent>
@@ -418,13 +404,15 @@ export default function Component() {
                 transform: `translateY(${Math.max(0, (scrollY - 1400) * 0.08)}px)`,
               }}
             >
-              <Button
-                variant="outline"
-                size="lg"
-                className="mt-12 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-lg px-10 py-4 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
-              >
-                Alle Services Ansehen
-              </Button>
+              <Link href="/dienstleistungen">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="mt-12 bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-lg px-10 py-4 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
+                >
+                  Alle Services Ansehen
+                </Button>
+              </Link>
             </div>
           </div>
         </section>
@@ -452,7 +440,7 @@ export default function Component() {
                 transform: `translateY(${Math.max(0, (scrollY - 1800) * 0.1)}px)`,
               }}
             >
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">Warum Auto RiKu?</h2>
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white">Warum Marcello Auto?</h2>
               <p className="max-w-4xl mx-auto text-gray-300 text-xl leading-relaxed">
                 Über 20 Jahre Erfahrung und höchste Qualitätsstandards für Ihr Fahrzeug.
               </p>

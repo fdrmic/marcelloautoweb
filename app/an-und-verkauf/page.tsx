@@ -52,7 +52,7 @@ export default function AnUndVerkaufPage() {
 
     // Script dynamisch laden
     const script = document.createElement('script')
-    script.src = 'https://www.autoscout24.ch/assets/hci/v2/hci.current.js'
+    script.src = 'https://www.autoscout24.ch/MVC/Content/as24-hci-desktop/js/e.min.js'
     script.async = true
     script.onload = () => {
       console.log('AutoScout24 HCI Script geladen')
@@ -434,7 +434,10 @@ export default function AnUndVerkaufPage() {
 
                         {/* AutoScout24 HCI Integration */}
                         <div className="mt-8">
-                          <div className="hci-container" data-config-id="12354" data-language="de" data-entry-point="search"></div>
+                          <div 
+                            data-embedded-src="https://www.autoscout24.ch/de/hci/list?design=4878&filter=10154" 
+                            className="embedded-content-area w-full min-h-[600px]"
+                          ></div>
                         </div>
                       </div>
                     </div>

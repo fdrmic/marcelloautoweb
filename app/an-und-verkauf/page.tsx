@@ -38,6 +38,8 @@ import Script from "next/script"
 export default function AnUndVerkaufPage() {
   const [scrollY, setScrollY] = useState(0)
   const [tab, setTab] = useState<"verkauf" | "ankauf">("verkauf")
+  const [selectedImages, setSelectedImages] = useState<File[]>([])
+  const [imagePreviews, setImagePreviews] = useState<string[]>([])
   const hciRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -84,6 +86,41 @@ export default function AnUndVerkaufPage() {
     } catch (error) {
       console.error('Fehler beim Absenden des Formulars:', error)
     }
+  }
+
+  // Bild-Upload Handler
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(event.target.files || [])
+    
+    if (files.length > 6) {
+      alert('Maximal 6 Bilder erlaubt')
+      return
+    }
+
+    setSelectedImages(files)
+    
+    // Vorschau-URLs erstellen
+    const previews = files.map(file => URL.createObjectURL(file))
+    setImagePreviews(previews)
+  }
+
+  // Einzelnes Bild entfernen
+  const removeImage = (index: number) => {
+    const newImages = selectedImages.filter((_, i) => i !== index)
+    const newPreviews = imagePreviews.filter((_, i) => i !== index)
+    
+    setSelectedImages(newImages)
+    setImagePreviews(newPreviews)
+    
+    // URL freigeben
+    URL.revokeObjectURL(imagePreviews[index])
+  }
+
+  // Alle Bilder entfernen
+  const clearAllImages = () => {
+    imagePreviews.forEach(url => URL.revokeObjectURL(url))
+    setSelectedImages([])
+    setImagePreviews([])
   }
 
   // Berechne die Navbar-Transparenz basierend auf der Scroll-Position
@@ -357,6 +394,8 @@ export default function AnUndVerkaufPage() {
                             <Label className="text-sm font-medium text-gray-300">
                               Fahrzeugbilder (max. 6 Bilder)
                             </Label>
+                            
+                            {/* Bild-Upload Input */}
                             <div className="w-full">
                               <input
                                 type="file"
@@ -364,6 +403,7 @@ export default function AnUndVerkaufPage() {
                                 name="vehicle-images"
                                 accept="image/*"
                                 multiple
+                                onChange={handleImageUpload}
                                 className="hidden"
                               />
                               <label
@@ -377,7 +417,7 @@ export default function AnUndVerkaufPage() {
                                     </svg>
                                   </div>
                                   <p className="mb-3 text-lg sm:text-xl md:text-2xl text-gray-400 group-hover:text-gray-300 text-center font-semibold">
-                                    Bilder hochladen
+                                    {selectedImages.length > 0 ? `${selectedImages.length} Bild(er) ausgewählt` : 'Bilder hochladen'}
                                   </p>
                                   <p className="mb-2 text-sm sm:text-base text-gray-500 text-center">
                                     Klicken Sie hier oder ziehen Sie bis zu 6 Bilder hierher
@@ -388,6 +428,46 @@ export default function AnUndVerkaufPage() {
                                 </div>
                               </label>
                             </div>
+
+                            {/* Bildvorschau */}
+                            {imagePreviews.length > 0 && (
+                              <div className="space-y-3">
+                                <div className="flex items-center justify-between">
+                                  <h4 className="text-sm font-medium text-gray-300">Ausgewählte Bilder:</h4>
+                                  <Button
+                                    type="button"
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={clearAllImages}
+                                    className="text-xs px-2 py-1 h-auto border-gray-600 text-gray-400 hover:text-red-400 hover:border-red-400"
+                                  >
+                                    Alle entfernen
+                                  </Button>
+                                </div>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                                  {imagePreviews.map((preview, index) => (
+                                    <div key={index} className="relative group">
+                                      <img
+                                        src={preview}
+                                        alt={`Vorschau ${index + 1}`}
+                                        className="w-full h-24 sm:h-28 md:h-32 object-cover rounded-lg border border-gray-600"
+                                      />
+                                      <button
+                                        type="button"
+                                        onClick={() => removeImage(index)}
+                                        className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center text-xs font-bold hover:bg-red-600 transition-colors opacity-0 group-hover:opacity-100"
+                                      >
+                                        ×
+                                      </button>
+                                      <p className="text-xs text-gray-400 mt-1 truncate">
+                                        {selectedImages[index]?.name || `Bild ${index + 1}`}
+                                      </p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            )}
+                            
                             <p className="text-xs sm:text-sm text-gray-400">
                               Laden Sie bis zu 6 Bilder Ihres Fahrzeugs hoch. Empfohlen: Seitenansicht, Front, Heck, Innenraum, Motorraum, weitere Details.
                             </p>
@@ -416,9 +496,8 @@ export default function AnUndVerkaufPage() {
                           <Button
                             type="submit"
                             size="lg"
-                            className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] text-base sm:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 hover:scale-105"
+                            className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] text-base sm:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_20px_rgba(255,0,0,0.5)] transition-all duration-300 hover:scale-105"
                           >
-                            <Car className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                             Anfrage absenden
                           </Button>
                         </div>

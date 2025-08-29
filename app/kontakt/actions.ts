@@ -13,10 +13,10 @@ export async function submitKontaktForm(formData: FormData) {
     const betreff = formData.get('betreff') as string
     const nachricht = formData.get('nachricht') as string
 
-    // E-Mail an marcello-autohandel@bluewin.ch senden
+    // E-Mail an info@marcello-auto.ch senden
     const { data, error } = await resend.emails.send({
       from: 'Marcello Auto GmbH <noreply@marcello-auto.ch>',
-      to: ['marcello-autohandel@bluewin.ch'],
+      to: ['info@marcello-auto.ch'],
       subject: `Kontaktanfrage: ${betreff}`,
       html: generateKontaktEmailHTML({
         vorname,

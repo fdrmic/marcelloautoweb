@@ -80,7 +80,7 @@ export default function GlobalFooter() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#FF0000]" />
-                <span>marcello-autohandel@bluewin.ch</span>
+                <span>info@marcello-auto.ch</span>
               </li>
             </ul>
           </div>
@@ -227,7 +227,7 @@ export default function GlobalFooter() {
               <div>
                 <h4 className="font-semibold text-gray-900 mb-2">Kontakt:</h4>
                 <p className="text-gray-700">Telefon: 078 628 24 50 / 076 340 73 38</p>
-                <p className="text-gray-700">E-Mail: marcello-autohandel@bluewin.ch</p>
+                <p className="text-gray-700">E-Mail: info@marcello-auto.ch</p>
                 <p className="text-gray-700">Webseite: marcello-auto.ch</p>
               </div>
 
@@ -282,7 +282,7 @@ export default function GlobalFooter() {
                   <p className="text-gray-700">Franzosenstrasse 26</p>
                   <p className="text-gray-700">6423 Seewen</p>
                   <p className="text-gray-700">Schweiz</p>
-                  <p className="text-gray-700">E-Mail: marcello-autohandel@bluewin.ch</p>
+                  <p className="text-gray-700">E-Mail: info@marcello-auto.ch</p>
                   <p className="text-gray-700">Telefon: 078 628 24 50 / 076 340 73 38</p>
                 </div>
               </div>

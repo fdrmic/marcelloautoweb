@@ -19,10 +19,10 @@ export async function submitVerkaufForm(formData: FormData) {
     const condition = formData.get('condition') as string
     const description = formData.get('description') as string
 
-    // E-Mail an marcello-autohandel@bluewin.ch senden
+    // E-Mail an info@marcello-auto.ch senden
     const { data, error } = await resend.emails.send({
       from: 'Marcello Auto GmbH <noreply@marcello-auto.ch>',
-      to: ['marcello-autohandel@bluewin.ch'],
+      to: ['info@marcello-auto.ch'],
       subject: `Fahrzeugverkauf: ${brand} ${model} (${year})`,
       html: generateVerkaufEmailHTML({
         firstName,
@@ -69,10 +69,10 @@ export async function submitAnkaufForm(formData: FormData) {
     const condition = formData.get('condition') as string
     const description = formData.get('description') as string
 
-    // E-Mail an marcello-autohandel@bluewin.ch senden
+    // E-Mail an info@marcello-auto.ch senden
     const { data, error } = await resend.emails.send({
       from: 'Marcello Auto GmbH <noreply@marcello-auto.ch>',
-      to: ['marcello-autohandel@bluewin.ch'],
+      to: ['info@marcello-auto.ch'],
       subject: `Fahrzeugankauf: ${brand} ${model} (${year})`,
       html: generateAnkaufEmailHTML({
         firstName,

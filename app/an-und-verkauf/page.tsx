@@ -115,32 +115,32 @@ export default function AnUndVerkaufPage() {
       <div className="flex flex-col min-h-[100dvh] bg-black text-white">
         <main className="flex-1 pt-16">
           {/* Hero Section - zentriert */}
-          <section className="relative w-full h-[40vh] flex items-center justify-center text-center overflow-hidden bg-black">
+          <section className="relative w-full h-[30vh] sm:h-[35vh] md:h-[40vh] flex items-center justify-center text-center overflow-hidden bg-black">
             {/* Content - zentriert */}
-            <div className="relative z-10 space-y-6 px-4 md:px-6 max-w-6xl mx-auto w-full">
-              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl">
+            <div className="relative z-10 space-y-4 sm:space-y-6 px-4 md:px-6 max-w-6xl mx-auto w-full">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl">
                 An- & Verkauf
               </h1>
-              <p className="max-w-4xl mx-auto text-xl md:text-2xl text-gray-200 drop-shadow-lg leading-relaxed">
+              <p className="max-w-4xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 drop-shadow-lg leading-relaxed px-2">
                 Verkaufen Sie Ihr Fahrzeug oder finden Sie Ihr Traumauto bei uns
               </p>
             </div>
           </section>
 
           {/* Main Content - zentriert */}
-          <section className="py-24 bg-black relative">
+          <section className="py-12 sm:py-16 md:py-24 bg-black relative">
             <div className="max-w-6xl mx-auto px-4 md:px-6">
               <Tabs value={tab} onValueChange={(v) => setTab(v as any)} className="w-full">
-                <TabsList className="flex w-full mb-12 bg-gray-800 border border-gray-700 rounded-xl p-1">
+                <TabsList className="flex w-full mb-8 sm:mb-10 md:mb-12 bg-gray-800 border border-gray-700 rounded-xl p-1">
                   <TabsTrigger
                     value="verkauf"
-                    className="flex-1 data-[state=active]:bg-[#FF0000] data-[state=active]:text-white data-[state=active]:shadow-lg text-lg py-4 px-6 rounded-lg transition-all duration-300 data-[state=inactive]:text-gray-300 data-[state=inactive]:hover:text-white data-[state=inactive]:hover:bg-gray-700 text-center justify-center"
+                    className="flex-1 data-[state=active]:bg-[#FF0000] data-[state=active]:text-white data-[state=active]:shadow-lg text-sm sm:text-base md:text-lg py-3 sm:py-4 px-3 sm:px-4 md:px-6 rounded-lg transition-all duration-300 data-[state=inactive]:text-gray-300 data-[state=inactive]:hover:text-white data-[state=inactive]:hover:bg-gray-700 text-center justify-center"
                   >
                     Fahrzeug Verkaufen
                   </TabsTrigger>
                   <TabsTrigger
                     value="ankauf"
-                    className="flex-1 data-[state=active]:bg-[#FF0000] data-[state=active]:text-white data-[state=active]:shadow-lg text-lg py-4 px-6 rounded-lg transition-all duration-300 data-[state=inactive]:text-gray-300 data-[state=inactive]:hover:text-white data-[state=inactive]:hover:bg-gray-700 text-center justify-center"
+                    className="flex-1 data-[state=active]:bg-[#FF0000] data-[state=active]:text-white data-[state=active]:shadow-lg text-sm sm:text-base md:text-lg py-3 sm:py-4 px-3 sm:px-4 md:px-6 rounded-lg transition-all duration-300 data-[state=inactive]:text-gray-300 data-[state=inactive]:hover:text-white data-[state=inactive]:hover:bg-gray-700 text-center justify-center"
                   >
                     Fahrzeug Kaufen
                   </TabsTrigger>
@@ -149,20 +149,20 @@ export default function AnUndVerkaufPage() {
                 {/* Verkauf Tab - angepasst für schwarzen Hintergrund */}
                 <TabsContent value="verkauf">
                   <Card className="bg-gray-900/80 backdrop-blur-sm border-gray-800 text-white">
-                    <CardHeader className="text-center pb-8">
-                      <CardTitle className="text-3xl font-bold mb-4">Fahrzeug Verkaufen</CardTitle>
-                      <CardDescription className="text-gray-300 text-lg">
+                    <CardHeader className="text-center pb-6 sm:pb-8">
+                      <CardTitle className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Fahrzeug Verkaufen</CardTitle>
+                      <CardDescription className="text-gray-300 text-base sm:text-lg">
                         Geben Sie hier alle wichtigen Informationen Ihres Fahrzeugs an und wir melden uns bei Ihnen.
                       </CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      <form action={handleSubmit} className="space-y-8">
+                    <CardContent className="px-4 sm:px-6">
+                      <form action={handleSubmit} className="space-y-6 sm:space-y-8">
                         {/* Persönliche Daten */}
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                        <div className="space-y-4 sm:space-y-6">
+                          <h3 className="text-lg sm:text-xl font-semibold text-white border-b border-gray-700 pb-2">
                             Persönliche Daten
                           </h3>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div className="space-y-2">
                               <Label htmlFor="firstName" className="text-sm font-medium text-gray-300">
                                 Vorname *
@@ -172,7 +172,7 @@ export default function AnUndVerkaufPage() {
                                 id="firstName"
                                 name="firstName"
                                 required
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="Ihr Vorname"
                               />
                             </div>
@@ -185,13 +185,13 @@ export default function AnUndVerkaufPage() {
                                 id="lastName"
                                 name="lastName"
                                 required
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="Ihr Nachname"
                               />
                             </div>
                           </div>
 
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div className="space-y-2">
                               <Label htmlFor="email" className="text-sm font-medium text-gray-300">
                                 E-Mail *
@@ -201,7 +201,7 @@ export default function AnUndVerkaufPage() {
                                 id="email"
                                 name="email"
                                 required
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="ihre.email@beispiel.ch"
                               />
                             </div>
@@ -214,7 +214,7 @@ export default function AnUndVerkaufPage() {
                                 id="phone"
                                 name="phone"
                                 required
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="+41 76 123 66 78"
                               />
                             </div>
@@ -222,11 +222,11 @@ export default function AnUndVerkaufPage() {
                         </div>
 
                         {/* Fahrzeugdaten */}
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-semibold text-white border-b border-gray-700 pb-2">
+                        <div className="space-y-4 sm:space-y-6">
+                          <h3 className="text-lg sm:text-xl font-semibold text-white border-b border-gray-700 pb-2">
                             Fahrzeugdaten
                           </h3>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div className="space-y-2">
                               <Label htmlFor="brand" className="text-sm font-medium text-gray-300">
                                 Marke *
@@ -236,7 +236,7 @@ export default function AnUndVerkaufPage() {
                                 id="brand"
                                 name="brand"
                                 required
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="z.B. BMW, Mercedes, Audi"
                               />
                             </div>
@@ -249,13 +249,13 @@ export default function AnUndVerkaufPage() {
                                 id="model"
                                 name="model"
                                 required
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="z.B. 3er, C-Klasse, A4"
                               />
                             </div>
                           </div>
 
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                             <div className="space-y-2">
                               <Label htmlFor="year" className="text-sm font-medium text-gray-300">
                                 Baujahr *
@@ -267,7 +267,7 @@ export default function AnUndVerkaufPage() {
                                 required
                                 min="1900"
                                 max={new Date().getFullYear() + 1}
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="2020"
                               />
                             </div>
@@ -281,7 +281,7 @@ export default function AnUndVerkaufPage() {
                                 name="mileage"
                                 required
                                 min="0"
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="50000"
                               />
                             </div>
@@ -290,7 +290,7 @@ export default function AnUndVerkaufPage() {
                                 Kraftstoffart *
                               </Label>
                               <Select name="fuelType" required>
-                                <SelectTrigger className="bg-gray-800 border-gray-700 text-white focus:ring-[#FF0000] focus:border-[#FF0000]">
+                                <SelectTrigger className="bg-gray-800 border-gray-700 text-white focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base">
                                   <SelectValue placeholder="Bitte wählen" />
                                 </SelectTrigger>
                                 <SelectContent className="bg-gray-800 border-gray-700 text-white">
@@ -305,7 +305,7 @@ export default function AnUndVerkaufPage() {
                             </div>
                           </div>
 
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                             <div className="space-y-2">
                               <Label htmlFor="priceExpectation" className="text-sm font-medium text-gray-300">
                                 Preisvorstellung
@@ -316,7 +316,7 @@ export default function AnUndVerkaufPage() {
                                 name="priceExpectation"
                                 min="0"
                                 step="100"
-                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000]"
+                                className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base"
                                 placeholder="15000"
                               />
                               <p className="text-xs text-gray-400">Geben Sie Ihren gewünschten Verkaufspreis in CHF an</p>
@@ -326,7 +326,7 @@ export default function AnUndVerkaufPage() {
                                 Fahrzeugzustand
                               </Label>
                               <Select name="condition">
-                                <SelectTrigger className="bg-gray-800 border-gray-700 text-white focus:ring-[#FF0000] focus:border-[#FF0000]">
+                                <SelectTrigger className="bg-gray-800 border-gray-700 text-white focus:ring-[#FF0000] focus:border-[#FF0000] text-sm sm:text-base">
                                   <SelectValue placeholder="Zustand wählen" />
                                 </SelectTrigger>
                                 <SelectContent className="bg-gray-800 border-gray-700 text-white">
@@ -346,8 +346,8 @@ export default function AnUndVerkaufPage() {
                             <Textarea
                               id="description"
                               name="description"
-                              rows={4}
-                              className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] resize-none"
+                              rows={3}
+                              className="bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-[#FF0000] focus:border-[#FF0000] resize-none text-sm sm:text-base"
                               placeholder="Beschreiben Sie den Zustand Ihres Fahrzeugs, besondere Ausstattungen, etc."
                             ></Textarea>
                           </div>
@@ -357,37 +357,38 @@ export default function AnUndVerkaufPage() {
                             <Label className="text-sm font-medium text-gray-300">
                               Fahrzeugbilder (max. 6 Bilder)
                             </Label>
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                              {/* Upload-Buttons für 6 Bilder */}
-                              {[1, 2, 3, 4, 5, 6].map((index) => (
-                                <div key={index} className="relative">
-                                  <input
-                                    type="file"
-                                    id={`image-${index}`}
-                                    name={`image-${index}`}
-                                    accept="image/*"
-                                    className="hidden"
-                                  />
-                                  <label
-                                    htmlFor={`image-${index}`}
-                                    className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 hover:border-[#FF0000] transition-all duration-300 group"
-                                  >
-                                    <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                                      <div className="w-8 h-8 mb-3 text-gray-400 group-hover:text-[#FF0000] transition-colors">
-                                        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                        </svg>
-                                      </div>
-                                      <p className="mb-2 text-sm text-gray-400 group-hover:text-gray-300">
-                                        <span className="font-semibold">Bild {index} hochladen</span>
-                                      </p>
-                                      <p className="text-xs text-gray-500">JPG, PNG oder GIF</p>
-                                    </div>
-                                  </label>
+                            <div className="w-full">
+                              <input
+                                type="file"
+                                id="vehicle-images"
+                                name="vehicle-images"
+                                accept="image/*"
+                                multiple
+                                className="hidden"
+                              />
+                              <label
+                                htmlFor="vehicle-images"
+                                className="flex flex-col items-center justify-center w-full h-40 sm:h-48 md:h-56 border-2 border-dashed border-gray-600 rounded-lg cursor-pointer bg-gray-800 hover:bg-gray-700 hover:border-[#FF0000] transition-all duration-300 group"
+                              >
+                                <div className="flex flex-col items-center justify-center pt-8 sm:pt-10 md:pt-12 pb-8">
+                                  <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 mb-4 text-gray-400 group-hover:text-[#FF0000] transition-colors">
+                                    <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                  </div>
+                                  <p className="mb-3 text-lg sm:text-xl md:text-2xl text-gray-400 group-hover:text-gray-300 text-center font-semibold">
+                                    Bilder hochladen
+                                  </p>
+                                  <p className="mb-2 text-sm sm:text-base text-gray-500 text-center">
+                                    Klicken Sie hier oder ziehen Sie bis zu 6 Bilder hierher
+                                  </p>
+                                  <p className="text-xs sm:text-sm text-gray-600 text-center">
+                                    JPG, PNG (max. 6 Bilder)
+                                  </p>
                                 </div>
-                              ))}
+                              </label>
                             </div>
-                            <p className="text-xs text-gray-400">
+                            <p className="text-xs sm:text-sm text-gray-400">
                               Laden Sie bis zu 6 Bilder Ihres Fahrzeugs hoch. Empfohlen: Seitenansicht, Front, Heck, Innenraum, Motorraum, weitere Details.
                             </p>
                           </div>
@@ -411,13 +412,13 @@ export default function AnUndVerkaufPage() {
                           </Label>
                         </div>
 
-                        <div className="pt-6">
+                        <div className="pt-4 sm:pt-6">
                           <Button
                             type="submit"
                             size="lg"
-                            className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] text-lg px-10 py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 hover:scale-105"
+                            className="w-full bg-[#FF0000] text-white hover:bg-[#E60000] text-base sm:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 hover:scale-105"
                           >
-                            <Car className="h-5 w-5 mr-2" />
+                            <Car className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
                             Anfrage absenden
                           </Button>
                         </div>
@@ -429,25 +430,25 @@ export default function AnUndVerkaufPage() {
                 {/* Ankauf Tab - angepasst für schwarzen Hintergrund */}
                 <TabsContent value="ankauf">
                   <Card className="bg-gray-900/80 backdrop-blur-sm border-gray-800 text-white">
-                    <CardHeader className="text-center pb-8">
-                      <CardTitle className="text-3xl font-bold mb-4">Fahrzeug Kaufen</CardTitle>
-                      <CardDescription className="text-gray-300 text-lg">
+                    <CardHeader className="text-center pb-6 sm:pb-8">
+                      <CardTitle className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">Fahrzeug Kaufen</CardTitle>
+                      <CardDescription className="text-gray-300 text-base sm:text-lg">
                         Entdecken Sie unsere geprüften Fahrzeuge mit Garantie
                       </CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      <div className="text-center space-y-8">
-                        <div className="space-y-6">
-                          <p className="text-gray-300 text-lg leading-relaxed">
+                    <CardContent className="px-4 sm:px-6">
+                      <div className="text-center space-y-6 sm:space-y-8">
+                        <div className="space-y-4 sm:space-y-6">
+                          <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                             Wir bieten Ihnen eine sorgfältig ausgewählte Auswahl an qualitativ hochwertigen Fahrzeugen.
                           </p>
 
                           {/* AutoScout24 HCI Integration */}
-                          <div className="mt-8">
+                          <div className="mt-6 sm:mt-8">
                             {tab === "ankauf" && (
                               <div 
                                 ref={hciRef}
-                                className="hci-container w-full min-h-[600px]" 
+                                className="hci-container w-full min-h-[400px] sm:min-h-[500px] md:min-h-[600px]" 
                                 data-config-id="4224" 
                                 data-language="de" 
                                 data-entry-point="search"

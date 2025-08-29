@@ -137,7 +137,7 @@ export default function Component() {
               quality={100}
               sizes="100vw"
               style={{
-                objectPosition: "center 30%",
+                objectPosition: "center center",
               }}
             />
           </div>
@@ -160,7 +160,7 @@ export default function Component() {
               quality={100}
               sizes="100vw"
               style={{
-                objectPosition: "center 30%",
+                objectPosition: "center center",
               }}
             />
           </div>
@@ -175,13 +175,13 @@ export default function Component() {
 
           {/* Content - Slogan und Buttons mit Einblend-Effekt */}
           <div
-            className="relative z-10 space-y-6 md:space-y-8 px-4 md:px-6 max-w-6xl mx-auto w-full"
+            className="relative z-10 space-y-4 md:space-y-6 lg:space-y-8 px-4 md:px-6 max-w-6xl mx-auto w-full"
             style={{
               transform: `translateY(${scrollY * 0.2}px)`,
             }}
           >
             <h1 
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight px-2 animate-fade-in`}
+              className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold tracking-tight text-white drop-shadow-2xl leading-tight px-2 animate-fade-in`}
             >
               Ihre Vertrauensvolle
               <br />
@@ -190,15 +190,15 @@ export default function Component() {
               </span>
             </h1>
             <p 
-              className={`max-w-4xl mx-auto text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 drop-shadow-lg leading-relaxed px-4 animate-fade-in-delay`}
+              className={`max-w-4xl mx-auto text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-200 drop-shadow-lg leading-relaxed px-2 md:px-4 animate-fade-in-delay`}
             >
               Professionelle Reparaturen, Wartung und Fahrzeughandel - Ihr Auto ist bei uns in den besten Händen.
             </p>
-            <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center pt-4 sm:pt-8 px-4 animate-fade-in-delay-2`}>
+            <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center pt-2 sm:pt-4 md:pt-8 px-2 md:px-4 animate-fade-in-delay-2`}>
               <Link href="/dienstleistungen" className="w-full sm:w-auto">
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-[#FF0000] text-white hover:bg-[#E60000] text-base sm:text-lg md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 transform hover:scale-105"
+                  className="w-full sm:w-auto bg-[#FF0000] text-white hover:bg-[#E60000] text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 transform hover:scale-105"
                 >
                   Unsere Services
                 </Button>
@@ -207,7 +207,7 @@ export default function Component() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-base sm:text-lg md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
+                  className="w-full sm:w-auto bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-sm sm:text-base md:text-lg px-4 sm:px-6 md:px-8 lg:px-10 py-2 sm:py-3 md:py-4 rounded-full backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
                 >
                   Über uns
                 </Button>
@@ -456,9 +456,9 @@ export default function Component() {
                 <div className="w-24 h-24 bg-[#FF0000]/10 rounded-full flex items-center justify-center group-hover:bg-[#FF0000]/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(255,0,0,0.2)]">
                   <Shield className="h-12 w-12 text-[#FF0000]" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Zertifizierte Qualität</h3>
+                <h3 className="text-2xl font-bold text-white">Technische Exzellenz</h3>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Meisterbetrieb mit modernster Ausstattung und geschulten Fachkräften.
+                Wir verbinden Erfahrung mit neuester Technologie – für nachhaltige Qualität und Sicherheit
                 </p>
               </div>
 
@@ -473,7 +473,7 @@ export default function Component() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Schneller Service</h3>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Termingerechte Abwicklung und transparente Kommunikation während der Reparatur.
+                Zügige Abwicklung und klare Kommunikation – damit Sie schnell wieder mobil sind.
                 </p>
               </div>
 
@@ -488,7 +488,7 @@ export default function Component() {
                 </div>
                 <h3 className="text-2xl font-bold text-white">Persönliche Betreuung</h3>
                 <p className="text-lg text-gray-400 leading-relaxed">
-                  Individuelle Beradung und faire Preise - Ihr Vertrauen ist unser Antrieb.
+                Wir nehmen uns Zeit für Sie – mit ehrlicher Beratung und Betreuung rund um Ihr Fahrzeug.
                 </p>
               </div>
             </div>

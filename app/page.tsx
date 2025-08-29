@@ -124,7 +124,7 @@ export default function Component() {
           <div
             className="absolute inset-0 w-full h-[120%]"
             style={{
-              transform: `translateY(${scrollY * 0.5}px)`,
+              transform: `translateY(${Math.min(scrollY * 0.3, 200)}px)`,
             }}
           >
             <Image
@@ -146,7 +146,7 @@ export default function Component() {
           <div
             className="absolute inset-0 w-full h-[120%] bg-black"
             style={{
-              transform: `translateY(${scrollY * 0.5}px)`,
+              transform: `translateY(${Math.min(scrollY * 0.3, 200)}px)`,
               clipPath: "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
             }}
           >
@@ -169,7 +169,7 @@ export default function Component() {
           <div
             className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"
             style={{
-              transform: `translateY(${scrollY * 0.3}px)`,
+              transform: `translateY(${Math.min(scrollY * 0.2, 150)}px)`,
             }}
           />
 
@@ -177,7 +177,7 @@ export default function Component() {
           <div
             className="relative z-10 space-y-4 md:space-y-6 lg:space-y-8 px-4 md:px-6 max-w-6xl mx-auto w-full"
             style={{
-              transform: `translateY(${scrollY * 0.2}px)`,
+              transform: `translateY(${Math.min(scrollY * 0.1, 100)}px)`,
             }}
           >
             <h1 
@@ -523,7 +523,7 @@ export default function Component() {
                     size="lg"
                     className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 hover:text-[#FF0000] hover:border-[#FF0000] text-lg px-10 py-4 rounded-full backdrop-blur-sm transition-all duration-300 hover:scale-105"
                   >
-                    Services Ansehen
+                    Services ansehen
                   </Button>
                 </Link>
                 <Link href="/kontakt">
@@ -531,7 +531,7 @@ export default function Component() {
                     size="lg"
                     className="bg-[#FF0000] text-white hover:bg-[#E60000] text-lg px-10 py-4 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,0,0,0.5)] transition-all duration-300 hover:scale-105"
                   >
-                    Termin Vereinbaren
+                    Termin vereinbaren
                   </Button>
                 </Link>
               </div>
